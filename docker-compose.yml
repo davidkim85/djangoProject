@@ -12,7 +12,7 @@ services:
   web:
     container_name: dev_backend
     build: .
-    command: ["./wait-for-it.sh","db:5432", "--","uwsgi","--ini","/code/uwsgi/uwsgi.ini" ]
+    command: ["chmod +x ./wait-for-it.sh","db:5432", "--","uwsgi","--ini","/code/uwsgi/uwsgi.ini" ]
     restart: always
     volumes:
       - .:/code
