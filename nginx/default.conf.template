@@ -4,7 +4,7 @@ upstream uwsgi_app {
 }
 
 server {
-    listen 80;
+    listen 1048;
     error_log stderr warn;
     access_log /dev/stdout main;
     charset     utf-8;
