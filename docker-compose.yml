@@ -13,8 +13,6 @@ services:
     container_name: dev_backend
     build: .
     restart: always
-    volumes:
-      - .:/code
     env_file: dev.env
     depends_on:
       - db
