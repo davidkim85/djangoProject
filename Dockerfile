@@ -9,7 +9,7 @@ WORKDIR /code
 RUN pip install --upgrade pip
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
-RUN chmod +x "./wait-for-it.sh db:5432"
+RUN chmod +x "./wait-for-it.sh db:5432" && mkdir /var/run/uwsgi && chown -R www-data:www-data /var/run/uwsgi
 # Copy the Django project
 COPY . /code/
 ENTRYPOINT ["./wait-for-it.sh db:5432"]
