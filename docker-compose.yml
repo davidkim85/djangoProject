@@ -12,7 +12,7 @@ services:
   web:
     container_name: dev_backend
     build: .
-    command: ["chmod +x","uwsgi","--ini","/code/uwsgi/uwsgi.ini" ]
+    command: ["chmod +x uwsgi","--ini","/code/uwsgi/uwsgi.ini" ]
     restart: always
     volumes:
       - .:/code
