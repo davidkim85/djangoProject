@@ -10,6 +10,7 @@ RUN pip install --upgrade pip
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN chmod +x "./wait-for-it.sh db:5432"
+RUN chmod +x "uwsgi --ini /code/uwsgi/uwsgi.ini"
 # Copy the Django project
 COPY . /code/
 
