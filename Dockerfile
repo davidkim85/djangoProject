@@ -2,7 +2,7 @@
 FROM python:3.10.6
 RUN mkdir /code
 WORKDIR /code
-COPY . /code/
+COPY . /code
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
