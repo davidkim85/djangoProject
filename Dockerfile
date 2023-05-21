@@ -15,3 +15,4 @@ RUN chmod +x "uwsgi --ini /code/uwsgi/uwsgi.ini"
 COPY . /code/
 
 ENTRYPOINT ["./wait-for-it.sh db:5432"]
+CMD["uwsgi --ini /code/uwsgi/uwsgi.ini"]
