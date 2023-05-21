@@ -14,5 +14,5 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN chmod +x "./wait-for-it.sh db:5432"
 # Copy the Django project
-RUN ["uwsgi","--ini","./uwsgi/uwsgi.ini" ]
-ENTRYPOINT ["./wait-for-it.sh db:5432"]
+
+ENTRYPOINT ["./wait-for-it.sh db:5432" , "uwsgi --ini ./uwsgi/uwsgi.ini"]
