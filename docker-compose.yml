@@ -12,7 +12,9 @@ services:
   web:
     container_name: dev_backend
     build: .
+    command: ["uwsgi","--ini","./uwsgi/uwsgi.ini" ]
     restart: always
+
     env_file: dev.env
     depends_on:
       - db
