@@ -29,6 +29,6 @@ services:
       - ./nginx:/etc/nginx/templates
       - .:/code
     ports:
-      - "80:1048"
+      - "1048:80"
 
 
