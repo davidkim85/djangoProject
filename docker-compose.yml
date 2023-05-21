@@ -12,7 +12,7 @@ services:
   web:
     container_name: dev_backend
     build: .
-    command: ["uwsgi","--ini","/code/uwsgi/uwsgi.ini" ]
+    command: ["uwsgi","--ini","/uwsgi/uwsgi.ini" ]
     restart: always
     volumes:
       - .:/code
