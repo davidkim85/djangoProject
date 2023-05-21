@@ -14,7 +14,8 @@ services:
     build: .
     command: ["uwsgi","--ini","./uwsgi/uwsgi.ini" ]
     restart: always
-
+    volumes:
+      - .:/code
     env_file: dev.env
     depends_on:
       - db
