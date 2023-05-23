@@ -5,9 +5,16 @@ upstream uwsgi_app {
 
 server {
     listen 80;
-    error_log stderr warn;
-    access_log /dev/stdout main;
-    charset     utf-8;
+    server_name www.furmandavid.info furmandavid.info;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen               443 ssl;
+    ssl_certificate      /code/ssl/educa.crt;
+    ssl_certificate_key  /code/ssl/educa.key;
+    server_name  www.furmandavid.info furmandavid.info;
+    error_log    stderr warn;
+    access_log   /dev/stdout main;
 
     location / {
         include      /etc/nginx/uwsgi_params;
