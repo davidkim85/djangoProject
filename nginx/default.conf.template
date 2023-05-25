@@ -10,16 +10,22 @@ server {
     return 301 https://$host$request_uri;
 }
 server {
-    listen 443 ssl http2;
+    listen 443 ssl;
     server_name  www.furmandavid.info furmandavid.info;
+    server_tokens off;
     ssl_certificate /etc/letsencrypt/live/furmandavid.info/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/furmandavid.info/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     error_log    stderr warn;
     access_log   /dev/stdout main;
 
     location / {
         include      /etc/nginx/uwsgi_params;
         uwsgi_pass   uwsgi_app;
+        proxy_set_header    Host                $http_host;
+        proxy_set_header    X-Real-IP           $remote_addr;
+        proxy_set_header    X-Forwarded-For     $proxy_add_x_forwarded_for;
     }
 
     location /static/ {
