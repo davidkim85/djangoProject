@@ -13,7 +13,7 @@ server {
         root /var/www/certbot;
     }
     location / {
-        return 301 https://furmandavid.info$request_uri;
+        return 301 https://$host$request_uri;
     }
 }
 server {
