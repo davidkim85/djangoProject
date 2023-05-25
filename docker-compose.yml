@@ -39,3 +39,6 @@ services:
         - www-html:/val/www/html
     command: certonly --webroot --webroot-patch=/val/www/html --email davidki329@gmail.com --agree-tos --no-eff-email -d furmandavid.info
 
+volumes:
+  www-html:
+  etc-letsencrypt:
