@@ -29,12 +29,13 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - www-html:/var/www/html
+      - ./nginx/conf/default.conf.template:/etc/nginx/conf.d
+      - etc-letsencrypt:/etc/letsencrypt
   certbot:
-    image: certbot/certbot:latest
+    image: certbot/certbot
     volumes:
-        - ./certbot/www/:/var/www/certbot/:rw
-        - ./certbot/conf/:/etc/letsencrypt/:rw
+        - etc-letsencrypt:/etc/letsencrypt
+        - www-html:/val/www/html
+    command: certonly --webroot --webroot-patch=/val/www/html --email davidki329@gmail.com --agree-tos --no-eff-email -d furmandavid.info
 
