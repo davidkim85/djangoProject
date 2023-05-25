@@ -20,25 +20,12 @@ services:
     depends_on:
       - db
 
-
   nginx:
-    container_name: dev_web
     image: nginx:1.23.1
     restart: always
+    volumes:
+      - ./nginx:/etc/nginx/templates
+      - .:/code
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - www-html:/var/www/html
-      - ./nginx/conf/conf.d:/etc/nginx/conf.d
-      - etc-letsencrypt:/etc/letsencrypt
-  certbot:
-    image: certbot/certbot
-    volumes:
-        - etc-letsencrypt:/etc/letsencrypt
-        - www-html:/val/www/html
-    command: ["certonly --webroot --webroot-patch=/val/www/html --email davidki329@gmail.com --agree-tos --no-eff-email -d furmandavid.info"]
-
-volumes:
-  www-html:
-  etc-letsencrypt:
