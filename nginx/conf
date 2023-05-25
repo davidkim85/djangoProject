@@ -8,6 +8,7 @@ server {
     server_name furmandavid.info www.furmandavid.info;
     server_tokens off;
     location /.well-known/acme-challenge/ {
+        allow all;
         root /var/www/certbot;
     }
 
