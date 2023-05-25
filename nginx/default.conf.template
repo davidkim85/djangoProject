@@ -10,15 +10,15 @@ server {
 
 server {
     listen 443 ssl;
-    ssl_certificate  /code/ssl/educa.crt;
-    ssl_certificate_key  /code/ssl/educa.key;
+    ssl_certificate /code/ssl/educa.crt;
+    ssl_certificate_key /code/ssl/educa.key;
     server_name www.furmandavid.info furmandavid.info;
-    error_log    stderr warn;
-    access_log   /dev/stdout main;
+    error_log stderr warn;
+    access_log /dev/stdout main;
 
     location / {
         include /etc/nginx/uwsgi_params;
-        uwsgi_pass   uwsgi_app;
+        uwsgi_pass uwsgi_app;
     }
 
     location /static/ {
