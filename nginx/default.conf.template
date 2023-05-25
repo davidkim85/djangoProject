@@ -4,7 +4,7 @@ upstream uwsgi_app {
 }
 server {
     listen 80;
-    server_name furmandavid.info;
+    server_name www.furmandavid.info furmandavid.info;
     return 301 https://$host$request_uri;
 }
 
