@@ -22,7 +22,6 @@ services:
 
 
   nginx:
-    container_name: dev_web
     image: nginx:1.23.1
     restart: always
     volumes:
@@ -31,5 +30,4 @@ services:
     ports:
       - "80:80"
       - "443:443"
-
 
