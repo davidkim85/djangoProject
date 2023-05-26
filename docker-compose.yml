@@ -24,6 +24,10 @@ services:
     image: nginx:1.23.1
     restart: always
     volumes:
+      - ./public:/var/www/html
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/nginx/ssl
+      - ./certbot/data:/var/www/certbot
       - ./config/nginx:/etc/nginx/templates
       - .:/code
     ports:
@@ -31,3 +35,10 @@ services:
       - "443:443"
 
 
+  certbot:
+    image: certbot/certbot:latest
+    command: certonly --webroot --webroot-path=/var/www/certbot --email davidki329@gmail.com --agree-tos --no-eff-email -d domain.com -d www.furmandavid.info
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/logs:/var/log/letsencrypt
+      - ./certbot/data:/var/www/certbot
