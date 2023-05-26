@@ -21,23 +21,13 @@ services:
       - db
 
   nginx:
-    container_name: 'nginx-service'
-    build:
-      context: .
-      dockerfile: docker/nginx.Dockerfile
+    image: nginx:1.23.1
+    restart: always
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/templates
+      - .:/code
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - .:/code
-      - ./config:/config
-      - /etc/letsencrypt:/etc/letsencrypt:ro
-      - /tmp/acme_challenge:/tmp/acme_challenge
-    networks:
-      - app
-    restart: always
-networks:
-  app:
-    driver: bridge
 
 
