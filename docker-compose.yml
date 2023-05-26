@@ -24,7 +24,7 @@ services:
     image: nginx:1.23.1
     restart: always
     volumes:
-      - ./config/nginx.conf:/etc/nginx/templates
+      - ./config/:/etc/nginx/templates
       - .:/code
     ports:
       - "80:80"
