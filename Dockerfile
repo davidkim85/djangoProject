@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 RUN chmod +x "./wait-for-it.sh"
 # Copy the Django project
 
-ENTRYPOINT ["wait-for-it.sh db:5432"]
+ENTRYPOINT ["./wait-for-it.sh","db:5432"]
