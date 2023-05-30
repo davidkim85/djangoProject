@@ -14,8 +14,8 @@ server {
 server {
     listen 443 ssl;
     server_name www.furmandavid.info,furmandavid.info;
-    ssl_certificate      /code/educa/ssl/educa.crt;
-    ssl_certificate_key  /code/educa/ssl/educa.key;
+    ssl_certificate      /code/ssl/educa.crt;
+    ssl_certificate_key  /code/ssl/educa.key;
     error_log    stderr warn;
     access_log   /dev/stdout main;
 
