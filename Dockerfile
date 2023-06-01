@@ -13,6 +13,6 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 # Copy the Django project
 COPY . /code/
-RUN chmod +x "./wait-for-it.sh db 5432"
+RUN chmod +x "wait-for-it.sh db 5432"
 
 ENTRYPOINT ["./wait-for-it.sh db:5432"]
