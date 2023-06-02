@@ -31,7 +31,9 @@ CSRF_TRUSTED_ORIGINS = []
 CSRF_TRUSTED_ORIGINS.extend(filter(None, os.environ.get('CSRF_TRUSTED_ORIGINS','').split(','),))
 
 # Application definition
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
