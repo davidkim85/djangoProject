@@ -146,6 +146,7 @@ WAITFORIT_TIMEOUT_PATH=$(type -p timeout)
 WAITFORIT_TIMEOUT_PATH=$(realpath $WAITFORIT_TIMEOUT_PATH 2>/dev/null || readlink -f $WAITFORIT_TIMEOUT_PATH)
 
 WAITFORIT_BUSYTIMEFLAG=""
+
 if [[ $WAITFORIT_TIMEOUT_PATH =~ "busybox" ]]; then
     WAITFORIT_ISBUSY=1
     # Check if busybox timeout uses -t flag
