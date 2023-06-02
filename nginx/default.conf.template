@@ -11,26 +11,4 @@ server {
     location /.well-known/acme-challenge/ {
         root /var/www/certbot;
     }
-    }
-
-server {
-    listen 443 ssl;
-    server_name www.furmandavid.info,furmandavid.info;
-    ssl_certificate      /code/ssl/educa.crt;
-    ssl_certificate_key  /code/ssl/educa.key;
-    error_log    stderr warn;
-    access_log   /dev/stdout main;
-
-    location / {
-        include /etc/nginx/uwsgi_params;
-        uwsgi_pass uwsgi_app;
-    }
-
-    location /static/ {
-        alias /code/static/;
-    }
-    location /media/ {
-        alias /code/media/;
-    }
-
 }
