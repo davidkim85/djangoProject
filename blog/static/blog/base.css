@@ -1,15 +1,6 @@
-
-body {
-    margin:0;
-    font-family:'Roboto', sans-serif;
-    font-weight:400;
-    color:blue;
-}
-
-
 h1 {
     background:#efefef;
-    color: yellow;
+    color: red;
     width:100%;
     overflow:auto;
     padding:20px 0 20px 40px;
