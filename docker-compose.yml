@@ -26,8 +26,8 @@ services:
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - .:/code
-      - static_vol:/code/static
-      - media_vol:/code/media
+      - static_vol:/code/blog/static
+      - media_vol:/code/blog/media
     ports:
       - "80:80"
       - "443:443"
