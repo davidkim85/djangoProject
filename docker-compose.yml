@@ -23,6 +23,8 @@ services:
     restart: always
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./static:/etc/static
+      - ./media:/etc/media
       - .:/code
     ports:
       - "80:80"
