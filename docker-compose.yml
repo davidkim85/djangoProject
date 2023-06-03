@@ -26,6 +26,8 @@ services:
       - ./static:/etc/static
       - ./media:/etc/media
       - .:/code
+      - /code/static:/etc/static
+      - /code/media:/etc/media
     ports:
       - "80:80"
       - "443:443"
