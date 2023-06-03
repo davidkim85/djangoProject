@@ -14,8 +14,8 @@ services:
     restart: always
     volumes:
       - .:/code
-      - static_vol:/code/static
-      - media_vol:/code/media
+      - static_vol:/code/blog/static
+      - media_vol:/code/blog/media
     env_file: dev.env
     depends_on:
       - db
