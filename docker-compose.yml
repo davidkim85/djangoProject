@@ -10,7 +10,7 @@ services:
     env_file: dev.env
   web:
     build: .
-    command: ["uwsgi", "--ini", "/code/uwsgi/uwsgi.ini" ]
+    command: ["uwsgi", "--ini", "/code/uwsgi/uwsgi.ini","python manage.py collectstatic" ]
     restart: always
     volumes:
       - .:/code
