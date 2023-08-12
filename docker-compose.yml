@@ -14,8 +14,8 @@ services:
     restart: always
     volumes:
       - .:/code
-      - static_vol:/code/blog/static
-      - media_vol:/code/blog/media
+      - static_vol:/code/static/blog
+      - media_vol:/code/media/blog
     env_file: dev.env
     depends_on:
       - db
@@ -26,8 +26,8 @@ services:
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - .:/code
-      - static_vol:/code/blog/static
-      - media_vol:/code/blog/media
+      - static_vol:/code/static/blog
+      - media_vol:/code/media/blog
     ports:
       - "80:80"
       - "443:443"
